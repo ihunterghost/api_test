@@ -1,0 +1,22 @@
+from rest_framework import serializers
+from .models import *
+
+class LogSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Log
+        fields = ['mac', 'sensor']
+
+class DeviceSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Device
+        fields = ['mac', 'type', 'location']
+
+class CondominiumSerializer(serializers.HyperlinkedModelSerializer):
+
+    devices = DeviceSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Condominium
+        fields = ['id', 'name', 'description', 'devices']
+
+        
