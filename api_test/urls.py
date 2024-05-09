@@ -18,11 +18,19 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from core.views import *
+from financy.views import *
 
 router = routers.DefaultRouter()
 router.register(r'log', LogViewSet)
-router.register(r'device', DeviceViewSet)
-router.register(r'condominium', CondominiumViewSet)
+router.register(r'appis/device', DeviceViewSet)
+router.register(r'appis/condominium', CondominiumViewSet)
+router.register(r'financy/account', AccountViewSet)
+router.register(r'financy/payment', PaymentViewSet)
+router.register(r'financy/expensestype', ExpensesTypesViewSet)
+router.register(r'financy/earningstypes', EarningsTypesViewSet)
+router.register(r'financy/expenses', ExpensesViewSet)
+router.register(r'financy/earnings', EarningsViewSet)
+
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

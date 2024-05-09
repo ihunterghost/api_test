@@ -13,6 +13,9 @@ class Condominium(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ['name']
+
 class Device(models.Model):
     mac = models.CharField(max_length=12, primary_key=True)
     type = models.CharField(max_length=20)
